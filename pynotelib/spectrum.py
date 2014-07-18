@@ -38,4 +38,4 @@ def analyze(fn):
 	peaks = [(freq_to_note(freq), mag) for freq, mag in find_peaks(amp, freqs).items()]
 	binned = [(note, 20 * math.log(mag, 10)) for note, mag in sorted(peaks, lambda x, y: cmp(y[1], x[1]))]
 	
-	return collections.OrderedDict(binned)
+	return collections.OrderedDict((note, mag) for note, mag in binned if mag > 0)

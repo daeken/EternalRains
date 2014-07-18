@@ -16,7 +16,8 @@ def freq_to_note(freq):
 	return chromatic[note % 12] + str((note / 12) - 1)
 
 def harmonics(fundamental, count):
-	return [fundamental * (i + 1) for i in xrange(count)]
+	fundamental = note_to_freq(fundamental)
+	return map(freq_to_note, [fundamental * (i + 1) for i in xrange(count)])
 
 def sort_notes(notes):
 	return map(freq_to_note, sorted(map(note_to_freq, list(set(notes)))))

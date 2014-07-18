@@ -12,22 +12,21 @@ tests = (
 	('d_chord', ('D3', 'A3', 'D4', 'F#4')), 
 )
 
-"""
-for fn, _ in tests:
-	for _, notes in tests:
-		print fn, notes, '%i%%' % (notelib.listen('samples/%s.wav' % fn, notes) * 100)
-"""
-
-print '<table border="1">'
-print '<tr>'
-print '<td>&nbsp;</td>'
-for tfn, _ in tests:
-	print '<th>%s</th>' % tfn
-print '</tr>'
-for fn, _ in tests:
+if False:
+	for fn, _ in tests:
+		for _, notes in tests:
+			print fn, notes, '%i%%' % (notelib.listen('samples/%s.wav' % fn, notes) * 100)
+else:
+	print '<table border="1">'
 	print '<tr>'
-	print '<th>%s</th>' % fn
-	for _, notes in tests:
-		print '<td>%i%%</td>' % (notelib.listen('samples/%s.wav' % fn, notes) * 100)
+	print '<td>&nbsp;</td>'
+	for tfn, _ in tests:
+		print '<th>%s</th>' % tfn
 	print '</tr>'
-print '</table>'
+	for fn, _ in tests:
+		print '<tr>'
+		print '<th>%s</th>' % fn
+		for _, notes in tests:
+			print '<td>%i%%</td>' % (notelib.listen('samples/%s.wav' % fn, notes) * 100)
+		print '</tr>'
+	print '</table>'

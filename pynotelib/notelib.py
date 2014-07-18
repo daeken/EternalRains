@@ -8,7 +8,6 @@ def listen(fn, notes):
 	confidence = 0.0
 	part = 1. / len(notes)
 	for note in notes:
-		#print note, anotes
 		if note not in anotes:
 			hnotes = harmonics(note, 5)[1:]
 			for i, hnote in enumerate(hnotes):

@@ -20,3 +20,10 @@ def harmonics(fundamental, count):
 
 def sort_notes(notes):
 	return map(freq_to_note, sorted(map(note_to_freq, list(set(notes)))))
+
+import numpy as np
+def rfftfreq(n, d=1.0):
+	val = 1.0/(n*d)
+	N = n//2 + 1
+	results = np.core.arange(0, N, dtype=int)
+	return results * val
